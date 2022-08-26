@@ -1,12 +1,22 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 import copy
+import os
+import inspect
+from collections import defaultdict
 
+import cv2
 import mmcv
 import numpy as np
+from copy import deepcopy
 from mmcv.utils import deprecated_api_warning, is_tuple_of
 from numpy import random
 
-from ..builder import PIPELINES
+import traceback
+
+try:
+    from imagecorruptions import corrupt
+except ImportError:
+    corrupt = None
 
 try:
     import albumentations
@@ -14,6 +24,8 @@ try:
 except ImportError:
     albumentations = None
     Compose = None
+
+from ..builder import PIPELINES
 
 
 @PIPELINES.register_module()
