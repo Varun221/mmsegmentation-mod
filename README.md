@@ -1,3 +1,8 @@
+
+Additions
+- Albumentations support
+
+-------
 <div align="center">
   <img src="resources/mmseg-logo.png" width="600"/>
   <div>&nbsp;</div>
